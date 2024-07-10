@@ -1,0 +1,18 @@
+[
+   {
+    "cid" : 1,
+    "productos": null
+   } ,
+   {
+    "cid" : 2,
+    "productos": null
+   },
+   {
+      "cid" : 3,
+      "productos": null
+     } ,
+     {
+      "cid" : 4,
+      "productos": null
+     }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "pid": 1,
+    "title": "Producto 1",
+    "description": "Producto 1",
+    "code": "code 01",
+    "price": "precio 01",
+    "status": true,
+    "stock": "stock1"
+  },
+  {
+    "pid": 4,
+    "title": "Producto 1",
+    "description": "Producto 1",
+    "code": "code 01",
+    "price": "precio 01",
+    "status": true,
+    "stock": "stock1"
+  },
+  {
+    "pid": 5,
+    "title": "Producto 1",
+    "description": "Producto 1",
+    "code": "code 01",
+    "price": "precio 01",
+    "status": true,
+    "stock": "stock1"
+  },
+  {
+    "pid": 6,
+    "title": "Producto 1",
+    "description": "Producto 1",
+    "code": "code 01",
+    "price": "precio 01",
+    "status": true,
+    "stock": "stock1"
+  }
+]
