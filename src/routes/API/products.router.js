@@ -2,11 +2,9 @@ const express = require("express")
 const fs = require("fs")
 const path = require('path')
 const router = express.Router()
-
-
 const productsFilePath = path.join(__dirname, '../../data/products.json')
 
-// Función para leer productos desde el archivo
+
 const readProducts = () => {
     if (!fs.existsSync(productsFilePath)) {
      return []
@@ -15,12 +13,11 @@ const readProducts = () => {
    return JSON.parse(data)
  }
 
-//GET --OK
 router.get("/products",(req,res) =>{
     res.json(readProducts())
 })
 
-//GET --OK
+
 router.get("/products/:pid",(req,res) =>{    
     const pid = parseInt(req.params.pid) 
     const products =  readProducts() 
@@ -35,10 +32,10 @@ router.get("/products/:pid",(req,res) =>{
 
 router.post('/products', (req, res) => {    
 
-    const { title, description, code, price, status = true, stock, category, thumbnail } = req.body
+    const { title, description, code, price, status , stock, category, thumbnail } = req.body
     const products = readProducts()
     const pid = products.length + 1
-    const newProduct = { pid, title, description, code, price, status, stock, category, thumbnail }
+    const newProduct = { pid, title, description, code, price, status : true , stock, category, thumbnail }
 
     products.push(newProduct)
     writeProducts(products)
@@ -51,7 +48,7 @@ router.post('/products', (req, res) => {
 }
 
 router.put('/products/:pid', (req, res) => {
-    const { pid } = req.params
+    const pid = parseInt(req.params.pid)
     const updatedFields = req.body
     let products = readProducts()
     const productIndex = products.findIndex(p => p.pid == pid)
@@ -59,17 +56,15 @@ router.put('/products/:pid', (req, res) => {
     if (productIndex === -1) {
         return res.status(404).json({ message: 'Producto no encontrado' })
     }
-       
-    // Solo actualizar los campos proporcionados en el cuerpo de la solicitud
-    const updatedProduct = { ...products[productIndex], ...updatedFields }
+     
+   const updatedProduct = { ...products[productIndex], ...updatedFields }
 
     products[productIndex] = updatedProduct
     writeProducts(products)
 
-    res.json({ message: 'Producto actualizado', product: updatedProduct })
+    res.json({ message: 'Producto actualizado'})
 })
     
-
 router.delete('/products/:pid', (req, res) => {
     const { pid } = req.params
     let products = readProducts()
@@ -84,6 +79,5 @@ router.delete('/products/:pid', (req, res) => {
     res.json({ message: 'Producto eliminado' })
 
 })
-
 
 module.exports = router

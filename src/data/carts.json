@@ -1,18 +1,24 @@
 [
-   {
-    "cid" : 1,
-    "productos": null
-   } ,
-   {
-    "cid" : 2,
-    "productos": null
-   },
-   {
-      "cid" : 3,
-      "productos": null
-     } ,
-     {
-      "cid" : 4,
-      "productos": null
-     }
+  {
+    "cid": 1,
+    "products": [
+      {
+        "pid": 1,
+        "cantidad": 1
+      }
+    ]
+  },
+  {
+    "cid": 2,
+    "products": [
+      {
+        "pid": 1,
+        "cantidad": 4
+      },
+      {
+        "pid": 2,
+        "cantidad": 4
+      }
+    ]
+  }
 ]
